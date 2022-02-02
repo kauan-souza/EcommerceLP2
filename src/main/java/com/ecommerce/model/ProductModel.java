@@ -1,15 +1,13 @@
-package com.Model;
+package com.ecommerce.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-public class Produto {
+public class ProductModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +22,9 @@ public class Produto {
     @NotNull(message = "enter a valid valueUnitary")
     private Double valueUnitary;
 
-    public Produto(String name, String description, Double valueUnitary) {
+    @Deprecated
+    protected ProductModel() {}
+    public ProductModel(String name, String description, Double valueUnitary) {
         this.name = name;
         this.description = description;
         this.valueUnitary = valueUnitary;

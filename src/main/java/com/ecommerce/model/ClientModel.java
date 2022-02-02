@@ -1,30 +1,27 @@
-package com.Model;
+package com.ecommerce.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-public class Fornecedor {
-
+public class ClientModel extends Entidade{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_fornecedor;
+    private long id_cliente;
 
-    @NotNull(message = "enter a valid fantasyName")
-    private String fantasyName;
+    @NotNull (message = "enter a valid name")
+    private String name;
 
-    @NotNull(message = "enter a valid cnpj")
-    private String cnpj;
+    @NotNull(message = "enter a valid cpf")
+    private String cpf;
 
     @NotNull(message = "enter a valid email")
     private String email;
 
-    @NotNull(message = "enter a valid name phoneNumber")
+    @NotNull(message = "enter a valid phoneNumber")
     private String phoneNumber;
 
     @NotNull(message = "enter a valid street")
@@ -35,7 +32,7 @@ public class Fornecedor {
     @NotNull(message = "enter a valid district")
     private String district;
 
-    private String complemento;
+    private String complement;
 
     @NotNull(message = "enter a valid cep")
     private String cep;
@@ -43,33 +40,33 @@ public class Fornecedor {
     @NotNull(message = "enter a valid city")
     private String city;
 
-    @NotNull(message = "enter a valid state")
     private String state;
 
-    public Fornecedor(String fantasyName, String cnpj, String email,
-                      String phoneNumber, String street, String district , String cep
-    ,String city , String state) {
-        this.fantasyName = fantasyName;
-        this.cnpj = cnpj;
+    @Deprecated
+    protected ClientModel() {}
+    public ClientModel(String name, String cpf, String email, String phoneNumber,
+                       String street, String district, String cep, String city) {
+        this.name = name;
+        this.cpf = cpf;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.street = street;
         this.district = district;
         this.cep = cep;
         this.city = city;
-        this.state = state;
+        isValid();
     }
 
-    public long getId_fornecedor() {
-        return id_fornecedor;
+    public long getId_cliente() {
+        return id_cliente;
     }
 
-    public String getFantasyName() {
-        return fantasyName;
+    public String getName() {
+        return name;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getCpf() {
+        return cpf;
     }
 
     public String getEmail() {
@@ -92,8 +89,8 @@ public class Fornecedor {
         return district;
     }
 
-    public String getComplemento() {
-        return complemento;
+    public String getComplement() {
+        return complement;
     }
 
     public String getCep() {
