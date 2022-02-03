@@ -3,9 +3,11 @@ package com.ecommerce.service;
 import com.ecommerce.infra.repository.ProductRepository;
 import com.ecommerce.model.ClientModel;
 import com.ecommerce.model.ProductModel;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductService {
 
     private ProductRepository repository;

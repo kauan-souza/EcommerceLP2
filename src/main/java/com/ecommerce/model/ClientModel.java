@@ -44,8 +44,9 @@ public class ClientModel extends Entidade{
 
     @Deprecated
     protected ClientModel() {}
-    public ClientModel(String name, String cpf, String email, String phoneNumber,
+    public ClientModel(Long id_cliente, String name, String cpf, String email, String phoneNumber,
                        String street, String district, String cep, String city) {
+        this.id_cliente = id_cliente;
         this.name = name;
         this.cpf = cpf;
         this.email = email;
