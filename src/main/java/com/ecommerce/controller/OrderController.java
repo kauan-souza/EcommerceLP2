@@ -1,7 +1,7 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.model.ProviderModel;
-import com.ecommerce.service.ProviderService;
+import com.ecommerce.model.OrderModel;
+import com.ecommerce.service.OrderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/provider")
-public class ProviderController {
+@RequestMapping("/order")
+public class OrderController {
 
-    private ProviderService service;
+    private OrderService service;
 
-    public ProviderController(ProviderService service) {
+    public OrderController(OrderService service) {
         this.service = service;
     }
 
     @PostMapping
-    public void saveProvider(@RequestBody @Valid ProviderModel providerModel){
-        service.save(providerModel);
+    public void saveOrder(@RequestBody @Valid OrderModel orderModel){
+        service.save(orderModel);
     }
 
     @GetMapping
-    public List<ProviderModel> findAllProvider(){
+    public List<OrderModel> getAllOrder(){
         return service.findAll();
     }
+
 }

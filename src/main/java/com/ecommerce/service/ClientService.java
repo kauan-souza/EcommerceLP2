@@ -15,8 +15,9 @@ public class ClientService {
         this.repository = repository;
     }
 
-    public void save(ClientModel clientModel) {
+    public ClientModel save(ClientModel clientModel) {
         repository.save(clientModel);
+        return clientModel;
     }
 
     public String findByName(String name) {

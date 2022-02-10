@@ -23,8 +23,8 @@ private ClientService service;
     }
 
     @PostMapping
-    public void saveClient(@RequestBody @Valid ClientModel clientModel){
-        service.save(clientModel);
+    public ClientModel saveClient(@RequestBody @Valid ClientModel clientModel){
+        return service.save(clientModel);
     }
 
     @GetMapping(params = {"name"})
