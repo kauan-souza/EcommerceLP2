@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 
 @Entity
-public class OrderModel {
+public class OrderModel extends Entidade{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_pedido;
@@ -35,10 +35,12 @@ public class OrderModel {
 
     @Deprecated
     protected OrderModel() {}
-    public OrderModel(LocalDateTime dateBuy, ProviderModel providerModel, ClientModel clientModel) {
+    public OrderModel(Long id_pedido, LocalDateTime dateBuy, ProviderModel providerModel, ClientModel clientModel) {
+        this.id_pedido = id_pedido;
         this.dateBuy = dateBuy;
         this.providerModel = providerModel;
         this.clientModel = clientModel;
+        isValid();
     }
 
     public Double getValorFrete() {
@@ -49,15 +51,15 @@ public class OrderModel {
         return id_pedido;
     }
 
-    public LocalDateTime getDataCompra() {
+    public LocalDateTime getDateBuy() {
         return dateBuy;
     }
 
-    public ProviderModel getFornecedor() {
+    public ProviderModel getProviderModel() {
         return providerModel;
     }
 
-    public ClientModel getCliente() {
+    public ClientModel getClient() {
         return clientModel;
     }
 }

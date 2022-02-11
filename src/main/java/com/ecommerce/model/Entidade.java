@@ -1,5 +1,7 @@
 package com.ecommerce.model;
 
+import com.ecommerce.infra.excecao.ExcecaoModel;
+
 import javax.validation.Configuration;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -24,8 +26,8 @@ public class Entidade {
             mensagens.add(campo.concat(" : ").concat(msg));
         }
 
-//        if (!mensagens.isEmpty()) {
-//            throw new DominioInvalido(mensagens);
-//        }
+        if (!mensagens.isEmpty()) {
+            throw new ExcecaoModel(mensagens);
+        }
     }
 }

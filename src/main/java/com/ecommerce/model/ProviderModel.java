@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class ProviderModel {
+public class ProviderModel extends Entidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -59,6 +59,7 @@ public class ProviderModel {
         this.cep = cep;
         this.city = city;
         this.state = state;
+        isValid();
     }
 
     public long getId_fornecedor() {

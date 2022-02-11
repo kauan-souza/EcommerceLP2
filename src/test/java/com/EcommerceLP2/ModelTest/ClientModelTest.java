@@ -1,5 +1,6 @@
 package com.EcommerceLP2.ModelTest;
 
+import com.ecommerce.infra.excecao.ExcecaoModel;
 import com.ecommerce.model.ClientModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,7 @@ public class ClientModelTest {
         Assertions.assertEquals("cep" , clientModel.getCep());
         Assertions.assertEquals("city" , clientModel.getCity());
     }
+
     @Test
     public void deveSalvarSemSucesso(){
 
@@ -44,24 +46,12 @@ public class ClientModelTest {
         String cep = null;
         String city = null;
 
-//        try {
-//            ClientModel clientModel = new ClientModel(id, name, cpf, email, phoneNumber, street, district, cep, city);
-//        }catch (DominioInvalido di){
-//            String mensagemEsperada = "[escola : Instituição de ensino do curso deve ser informada!, nome : Nome do curso deve ser informado!]";
-//            Assertions.assertEquals(mensagemEsperada, di.getMessage());
-//        }
-
-
-
-//        Assertions.assertEquals(11223344 , clientModel.getId_cliente());
-//        Assertions.assertEquals("jose" , clientModel.getName());
-//        Assertions.assertEquals("0123456789" , clientModel.getCpf());
-//        Assertions.assertEquals("jose@gmail.com" , clientModel.getEmail());
-//        Assertions.assertEquals("phoneNumber" , clientModel.getPhoneNumber());
-//        Assertions.assertEquals("street" , clientModel.getStreet());
-//        Assertions.assertEquals("district" , clientModel.getDistrict());
-//        Assertions.assertEquals("cep" , clientModel.getCep());
-//        Assertions.assertEquals("city" , clientModel.getCity());
+       try {
+            ClientModel clientModel = new ClientModel(id, name, cpf, email, phoneNumber, street, district, cep, city);
+        }catch (ExcecaoModel di){
+            String mensagemEsperada = "[cpf : enter a valid cpf, cep : enter a valid cep, city : enter a valid city, email : enter a valid email, street : enter a valid street, phoneNumber : enter a valid phoneNumber, district : enter a valid district, name : enter a valid name]";
+            Assertions.assertEquals(mensagemEsperada, di.getMessage());
+       }
     }
 
 

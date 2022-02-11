@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class ProductModel {
+public class ProductModel extends Entidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,17 +24,19 @@ public class ProductModel {
 
     @Deprecated
     protected ProductModel() {}
-    public ProductModel(String name, String description, Double valueUnitary) {
+    public ProductModel(Long id_produto, String name, String description, Double valueUnitary) {
+        this.id_produto = id_produto;
         this.name = name;
         this.description = description;
         this.valueUnitary = valueUnitary;
+        isValid();
     }
 
     public long getId_produto() {
         return id_produto;
     }
 
-    public String getNome() {
+    public String getName() {
         return name;
     }
 

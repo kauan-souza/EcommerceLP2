@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class ItemModel {
+public class ItemModel extends Entidade{
 
     @ManyToOne
     @JoinColumn(name = "id_produto")
@@ -21,7 +21,7 @@ public class ItemModel {
     private Long id_item;
 
     @NotNull(message = "enter a valid quantity")
-    private int quantity;
+    private Integer quantity;
 
     private Double valueTotalItem;
 
@@ -31,9 +31,15 @@ public class ItemModel {
 
     @Deprecated
     protected ItemModel() {}
-    public ItemModel(ProductModel productModel, int quantity) {
+    public ItemModel(Long id_item, ProductModel productModel, Integer quantity) {
+        this.id_item = id_item;
         this.productModel = productModel;
         this.quantity = quantity;
+        isValid();
+    }
+
+    public Long getId_item() {
+        return id_item;
     }
 
     public ProductModel getProduct() {
