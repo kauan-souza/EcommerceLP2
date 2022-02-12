@@ -49,7 +49,7 @@ public class ClientModelTest {
        try {
             ClientModel clientModel = new ClientModel(id, name, cpf, email, phoneNumber, street, district, cep, city);
         }catch (ExcecaoModel di){
-            String mensagemEsperada = "[cpf : enter a valid cpf, cep : enter a valid cep, city : enter a valid city, email : enter a valid email, street : enter a valid street, phoneNumber : enter a valid phoneNumber, district : enter a valid district, name : enter a valid name]";
+            String mensagemEsperada = "[cep : enter a valid cep, city : enter a valid city, cpf : enter a valid cpf, district : enter a valid district, email : enter a valid email, name : enter a valid name, phoneNumber : enter a valid phoneNumber, street : enter a valid street]";
             Assertions.assertEquals(mensagemEsperada, di.getMessage());
        }
     }

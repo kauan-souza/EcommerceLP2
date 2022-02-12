@@ -7,7 +7,10 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Entidade {
@@ -18,6 +21,7 @@ public class Entidade {
         Validator validador = fabrica.getValidator();
         Set<ConstraintViolation<Entidade>> regrasVioladas = validador.validate(this);
 
+
         Set<String> mensagens = new HashSet<>();
 
         for (ConstraintViolation<Entidade> constraintViolation : regrasVioladas) {
@@ -27,7 +31,9 @@ public class Entidade {
         }
 
         if (!mensagens.isEmpty()) {
-            throw new ExcecaoModel(mensagens);
+            List<String> mensagensOrdenadas = new ArrayList<>(mensagens);
+            Collections.sort(mensagensOrdenadas);
+            throw new ExcecaoModel(mensagensOrdenadas.toString());
         }
     }
 }

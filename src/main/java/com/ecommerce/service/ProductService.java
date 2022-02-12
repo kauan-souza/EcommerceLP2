@@ -13,7 +13,7 @@ public class ProductService {
     private ProductRepository repository;
 
     public ProductService(ProductRepository repository) {
-        repository = repository;
+        this.repository = repository;
     }
 
     public void save(ProductModel productModel) {

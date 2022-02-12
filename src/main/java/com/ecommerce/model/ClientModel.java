@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class ClientModel extends Entidade{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_cliente;
+    private Long id_cliente;
 
     @NotNull (message = "enter a valid name")
     private String name;
